@@ -60,12 +60,8 @@ jobs:
       - checkout
       - setup
       - run:
-          name: Database setup
+          name: Database Setup
           command: bin/rails db:schema:load
-
-      - run:
-          name: Run test
-          command: bin/rails test
 
       - run:
           name: Rails Test
@@ -77,6 +73,6 @@ workflows:
   build_and_test:
     jobs:
       - test
-        # filters:
-        #   branches:
-        #     only: master
+        filters:
+          branches:
+            only: master
